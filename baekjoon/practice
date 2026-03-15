@@ -1,0 +1,21 @@
+
+
+# 10871
+N, X = map(int, input().split())
+nums = list(map(int, input().split()))
+
+ans = []
+for num in nums:
+    if num < X:
+        ans.append(num)
+# 출력방법1
+    print(*ans) # *ans는 리스트를 풀어서 공백으로 출력
+
+# 출력방법2
+for num in ans:
+    print(num, end=" ")
+
+# 출력방법3 (ans도 필요 없음)
+for num in nums:
+    if num < X:
+        print(num, end=" ")

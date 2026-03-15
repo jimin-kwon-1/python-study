@@ -1,7 +1,81 @@
 # 범위:
-# 파일 쓰기/읽기
-# 랜덤 데이터 생성
 
+# 튜플: 내부 요소 변경 불가
+## 리스트와 튜플 -> 변수 선언, 할당
+[a, b] = [10, 20]
+(c, d) = (10, 20)
+print(a)
+print(c)
+
+## 괄호 없는 튜플
+tuple_example = 10, 20, 30, 40
+print(tuple_example)
+print(type(tuple_example))
+
+## 변수 값 교환하는 튜플
+a, b = 10, 20
+print(a, b)
+a, b = b, a
+print(a, b)
+
+## 함수에서 여러 값 리턴
+def test():
+    return (10, 20)
+a, b = test()
+print(a, b)
+
+## 튜플을 리턴하는 함수의 예
+for i, value in enumerate([1, 2, 3, 4, 5]):
+    print("{}번째 요소는 {}입니다.".format(i, value))
+
+a, b = 97, 40
+divmod(a, b) # a를 b로 나눈 몫과 나머지를 튜플로 리턴
+
+# 람다: 함수를 간단히 작성하는 방법
+## 함수의 매개변수로 함수 전달
+def call_10_times(func):
+    for i in range(10):
+        func()
+def print_hello():
+    print("Hello")
+
+call_10_times(print_hello) # print_hello 함수를 call_10_times 함수의 매개변수로 전달
+
+## map(함수, 리스트): 리스트의 각 요소에 함수를 적용한 결과를 리턴
+## filter(함수, 리스트): 리스트의 각 요소에 함수를 적용하여 True인 것만 리턴
+def power(item):
+    return item * item
+def under_3(item):
+    return item < 3
+
+list_input_a = [1, 2, 3, 4, 5]
+output_a = map(power, list_input_a)
+print(list(output_a))
+
+output_b = filter(under_3, list_input_a)
+print(list(output_b))
+
+## lamda 매개변수: 리턴값
+
+power = lambda x: x * x
+under_3 = lambda x: x < 3
+
+list_input_a = [1, 2, 3, 4, 5]
+
+output_a = map(power, list_input_a)
+print(list(output_a))
+
+output_b = filter(under_3, list_input_a)
+print(list(output_b))
+
+## 인라인 람다_람다를 즉시 실행하는 예
+list_input_a = [1, 2, 3, 4, 5]
+
+output_a = map(lambda x: x *x, list_input_a)
+print(list(output_a))
+
+output_b = filter(lambda x: x < 3, list_input_a)
+print(list(output_b))
 
 # 파일 처리
 ## 파일 객체 = open(문자열: 파일 경로, 문자열: 읽기 모드)
@@ -61,26 +135,8 @@ with open("info.txt", "r") as file:
             "결과: {}"
         ]).format(name, weight, height, bmi, result))
         print()
-
-# 제너레이터: 이터레이터를 직접 만들 때 사용하는 코드, 값을 한 번에 다 만드는 게 아니라 필요할 때 하나씩 만드는 함수
-# 함수 내부에 yield 키워드 사용하면 제너레이터 함수 됨, 
+# 제너레이터: 이터레이터를 직접 만들 때 사용하는 코드, 함수 내부에 yield 키워드 사용하면 제너레이터 함수 됨, 
 # 함수 호출해도 함수 내부의 코드 실행 안 됨, next() 함수로 함수 내부 코드 실행
-# next(): yield까지 실행
-
-# yield: 제너레이터가 여기까지 실행 중이던 값을 내보낸다는 뜻. 중간값 리턴 후 다음 함수가 종료되지 않고 맨 끝까지 실행됨
-# (return: 함수 종료, yield: 멈춤)
-def gen():
-    print("start")
-    yield 1
-    print("middle")
-    yield 2
-    print("end")
-
-g = gen()
-print(next(g))
-print(next(g))
-
-
 def test():
     print("A 지점 통과")
     yield 1
