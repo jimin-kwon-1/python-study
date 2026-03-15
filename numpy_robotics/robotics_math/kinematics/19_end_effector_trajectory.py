@@ -27,7 +27,7 @@ def forward_kinematics(theta1, theta2):
 # 각도 범위 생성
 
 # np.linspace(0, 2*np.pi, 200): 0부터 2π까지를 200등분한 값들을 만듦 (200은 샘플 개수)
-theta1_values = np.linspace(0, 2*np.pi, 200) # 0~360도 사이를 200개의 각도로 나눈다.
+theta1_values = np.linspace(0, 2*np.pi, 200)
 
 # theta2는 고정
 theta2 = np.deg2rad(30)

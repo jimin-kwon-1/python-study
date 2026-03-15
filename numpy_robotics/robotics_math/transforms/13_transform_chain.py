@@ -12,8 +12,6 @@ Camera → Robot 변환을 만들기
 [ 0  1  ty ]
 [ 0  0   1 ]
 
-왜 이렇게 생겼을까?
-
 점 (x, y, 1)에 이 행렬을 곱하면:
 x' = x + tx
 y' = y + ty
@@ -26,9 +24,10 @@ Camera → Robot  =  T_robot_camera
 Robot → World   =  T_world_robot
 
 T_world_camera = T_world_robot @ T_robot_camera
-행렬곱은
-변환을 순서대로 적용하는 것
+행렬곱은 변환을 순서대로 적용하는 것
 
+T_world_camera = T_world_robot @ T_robot_camera
+p_world = p_camera @ T_world_camera.T
 """
 import numpy as np
 

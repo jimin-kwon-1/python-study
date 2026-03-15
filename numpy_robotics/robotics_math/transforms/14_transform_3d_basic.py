@@ -63,3 +63,15 @@ point_transformed = point_h @ T_total.T
 
 print("원래 점:", point)
 print("변환 후:", point_transformed[:, :3])
+
+
+"""
+행렬곱은 변환의 적용 순서를 결정한다.
+오른쪽에 있는 변환이 먼저 적용된다.
+먼저 회전
+그 다음 이동
+T_total = T_translate @ Rz
+순서 바꿔서 T_total = Rz @ T_translate 되면
+먼저 이동, 그 다음 회전
+
+"""

@@ -61,6 +61,7 @@ rotated = points @ R
 
 print("\n회전된 점들:\n", rotated)
 
+
 # practice
 import numpy as np
 
@@ -78,6 +79,7 @@ v_row = np.array([1, 0]) # 행벡터 (2,)
 
 print("열벡터 방식:\n", R @ v_col)
 print("행벡터 방식:\n", v_row @ R.T)
+
 
 # 행벡터 vs 열벡터 비교
 import numpy as np
